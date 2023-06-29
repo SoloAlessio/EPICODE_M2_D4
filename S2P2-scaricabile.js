@@ -69,9 +69,13 @@ for (let i = 0; i < ambassadors.length; i++) { // stampa tutti gli ambassadors
 console.log("-----------------------------------\n");
 
 
-let carrello = prices[0] + prices[1] + prices[2] // inserisce la somma di prezzi nel carrello
+let carrello = 0
+for (let i = 0; i < prices.length; i++) {
+  const prezzo = prices[i]
+  carrello += prezzo
+}
 
-let utenteCheEffettuaLAcquisto = amy //cambia il valore qui per provare se il tuo algoritmo funziona!
+let utenteCheEffettuaLAcquisto = alessio //cambia il valore qui per provare se il tuo algoritmo funziona!
 
 
 console.log("UTENTI:\n-----------------------------------"); // TITOLO sezione utenti
@@ -89,8 +93,8 @@ console.log("-----------------------------------\n");
 
 console.log("Prezzo totale del carrelo:", carrello);
 
-if (utenteCheEffettuaLAcquisto.isAmbassador == true){
-  carrello = carrello - (carrello * 30 / 100) // applica sconto del 30%
+if (utenteCheEffettuaLAcquisto.isAmbassador){
+  carrello -= (carrello * 30 / 100) // applica sconto del 30%
   console.log("Sconto del 30% applicato:", carrello);
   if (carrello < 100){ // se il carrello è superiore a 100, la spedizione è gratuita
     carrello += shippingCost
